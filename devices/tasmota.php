@@ -90,9 +90,8 @@ class tasmota
           schedule_log($payload);
         }
 
+        schedule_log($payloads[0]);
         schedule_log($payloads[1]);
-        schedule_log($payloads[2]);
-        schedule_log($payloads[3]);
 
         if (!isset($this->last_ctrlmode[$device])) $this->last_ctrlmode[$device] = "";
         if (!isset($this->last_timer[$device])) $this->last_timer[$device] = "";
