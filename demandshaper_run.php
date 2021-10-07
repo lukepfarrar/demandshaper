@@ -226,11 +226,17 @@ while(true)
                                                 
                     schedule_log("$device schedule complete");
                     
+
                     if ($schedule->settings->ctrlmode=="smart") {
-                        if (in_array($schedule->settings->on_completion,array("on","off","smart"))) {
-                            $schedule->settings->ctrlmode = $schedule->settings->on_completion;
-                            schedule_log("$device next ctrlmode: ".$schedule->settings->on_completion);
-                        }
+                      if ($schedule->settings->on_completion=="smart_leave_on") {
+                        $device_class[$device_type]->on($device);
+                        $schedule->settings->on_completion = "smart";
+                      }
+
+                      if (in_array($schedule->settings->on_completion,array("on","off","smart"))) {
+                        $schedule->settings->ctrlmode = $schedule->settings->on_completion;
+                        schedule_log("$device next ctrlmode: ".$schedule->settings->on_completion);
+                      }
                     }
                 }
                 

@@ -185,16 +185,25 @@ if ($remoteaccess) $emoncmspath .= "remoteaccess/";
               <tr class="openevse-balancing hide"><td>Balancing Time:</td><td><input class="input" name="baltime" type="text" style="width:80px"/> Mins</td></tr>
               <tr class="ovms-options hide"><td>OVMS Vehicle ID:</td><td><input class="input" name="ovms_vehicleid" type="text" style="width:80px"/></td></tr>
               <tr class="ovms-options hide"><td>OVMS Car Password:</td><td><input class="input" name="ovms_carpass" type="text" style="width:80px"/></td></tr> 
-            </table>      
-          </div>          
+            </table>
+          </div>
 
           <div class="general" style="border: 1px solid #ccc; padding:10px; margin-top:10px; background-color:#f0f0f0">
             <p><b>General Settings</b></p>
             <table class="table" style="margin:0">
-              <tr><td>At end of smart schedule:</td><td><select class="input" id="on_completion"><option value="smart">Reschedule</option><option value="off">Turn off</option><option value="on">Turn on</option></select></td></tr>
-            </table>      
-          </div> 
-          
+              <tr>
+                <td>At end of smart schedule:</td>
+                <td>
+                  <select class="input" id="on_completion">
+                    <option value="smart">Turn off and Reschedule</option>
+                    <option value="smart_leave_on">Turn on and Reschedule</option>
+                    <option value="off">Turn off</option>
+                    <option value="on">Turn on</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+          </div>
       </div>
     </div> <!-- scheduler-inner -->
   </div> <!-- node-scheduler -->
