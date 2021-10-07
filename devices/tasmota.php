@@ -247,10 +247,10 @@ class tasmota
 
 
 
-        $state->timer_start1 = conv_time($timer_parts[0],$timeOffset);
-        $state->timer_stop1 = conv_time($timer_parts[1],$timeOffset);
-        $state->timer_start2 = conv_time($timer_parts[2],$timeOffset);
-        $state->timer_stop2 = conv_time($timer_parts[3],$timeOffset);
+        $state->timer_start1 = time_conv($timer_parts[0],$timeOffset);
+        $state->timer_stop1 = time_conv($timer_parts[1],$timeOffset);
+        $state->timer_start2 = time_conv($timer_parts[2],$timeOffset);
+        $state->timer_stop2 = time_conv($timer_parts[3],$timeOffset);
 //        $state->voltage_output = $result->vout*1;*/
         return $state;
     }
