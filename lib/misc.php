@@ -7,16 +7,15 @@ function time_offset($t,$timeOffset) {
     return $t;
 }
 
-// time_conv and conv_time???
-function time_conv($t,$timeOffset){
-    $t = floor($t*0.01) + ($t*0.01 - floor($t*0.01))/0.6;
-    $t += $timeOffset;
-    if ($t<0.0) $t += 24.0;
-    if ($t>=24.0) $t -= 24.0;
-    return $t;
-}
-
-function conv_time($time,$timeOffset) {
+/*
+ * time_conv - converts time incorporating an offset.
+ *
+ * $time       24hr represented as an int e.g 01:30 expected as 1300
+ * $timeOffset Offset (e.g. timezone) as hour
+ *
+ * Returns hour of the day as a float (e.g. 01:30 = 1.5)
+ */
+function time_conv(int $time, float $timeOffset) {
     $h = floor($time*0.01);
     $m = (($time*0.01) - $h)/0.6;
     $t = $h+$m+$timeOffset;
